@@ -21,7 +21,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0E0D] text-[#DDD6CA] font-sans selection:bg-[#C05A3E] selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-dark text-sand font-sans selection:bg-terracotta selection:text-white relative overflow-x-hidden">
       {/* Sticky Smart Navigation */}
       <Navbar onOpenReserve={handleOpenReserve} />
 

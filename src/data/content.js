@@ -19,24 +19,24 @@ export const METRICS = [
   {
     value: "100%",
     suffix: "",
-    label: "Regenerative Sourcing",
+    label: "Kemitraan Petani",
     subtext: "Biji kopi & rempah langsung dari 12 koperasi petani nusantara."
   },
   {
     value: "48",
     suffix: " Jam",
     label: "Fermentasi Alami",
-    subtext: "Adonan sourdough liar tanpa ragi instan dan zat aditif."
+    subtext: "Adonan sourdough liar tanpa ragi instan dan bahan pengawet."
   },
   {
     value: "3",
-    suffix: " Sanctuary Spaces",
-    label: "Ruang Restoratif",
+    suffix: " Lokasi",
+    label: "Ruang Singgah",
     subtext: "Arsitektur ramah alam di Senopati, Dago Pakar, dan Canggu."
   },
   {
     value: "14.000+",
-    suffix: "/Bulan",
+    suffix: " / Bulan",
     label: "Cangkir Terseduh",
     subtext: "Profil sangrai micro-batch dengan kurva suhu presisi."
   }

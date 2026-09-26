@@ -1,22 +1,22 @@
 export default function Marquee() {
   const items = [
-    'PETIK MERAH DATARAN TINGGI NUSANTARA',
-    'KULTUR RAGI LIAR 48 JAM',
-    'PANGGANGAN BARA KAYU RAMBUTAN',
-    'MINUMAN BOTANIKAL ALAMI',
-    'ETIKA SOURCING 100% TERLACAK',
-    'SANCTUARY: JAKARTA · BANDUNG · BALI',
+    'Petik Merah Dataran Tinggi Nusantara',
+    'Kultur Ragi Liar 48 Jam',
+    'Panggangan Bara Kayu Rambutan',
+    'Minuman Botanikal Alami',
+    'Etika Sourcing Terlacak',
+    'Ruang Singgah: Jakarta · Bandung · Bali',
   ];
 
   return (
-    <div className="w-full py-4 bg-[#0C0B0A] border-b border-[#262320] overflow-hidden select-none">
-      <div className="animate-marquee flex items-center gap-12 whitespace-nowrap">
+    <div className="w-full py-3.5 bg-dark border-b border-line overflow-hidden select-none">
+      <div className="animate-marquee flex items-center gap-10 whitespace-nowrap">
         {[...items, ...items, ...items].map((text, idx) => (
-          <div key={idx} className="flex items-center gap-12">
-            <span className="text-[11px] font-mono tracking-[0.24em] uppercase text-[#6E675D]">
+          <div key={idx} className="flex items-center gap-10">
+            <span className="text-xs font-sans tracking-wider uppercase text-muted">
               {text}
             </span>
-            <span className="text-[#C05A3E] text-xs font-serif italic">§</span>
+            <span className="text-terracotta text-xs font-serif italic">§</span>
           </div>
         ))}
       </div>

@@ -3,24 +3,38 @@
 @theme {
   --font-serif: 'Fraunces', Georgia, serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --color-warm-dark: #0F0E0D;
-  --color-warm-surface: #151412;
-  --color-warm-elevated: #1C1A18;
-  --color-warm-cream: #F5F2EB;
-  --color-warm-stone: #E2DDD5;
-  --color-warm-muted: #8C8478;
-  --color-warm-border: #262320;
-  --color-warm-border-light: #36322C;
-  --color-warm-terracotta: #C05A3E;
-  --color-warm-sage: #3D4D3B;
-  --color-warm-amber: #C89542;
+
+  /* Color System: Single Source of Truth */
+  --color-dark: #0F0E0D;
+  --color-surface: #151412;
+  --color-elevated: #1C1A18;
+
+  --color-cream: #F5F2EB;
+  --color-sand: #DDD6CA;
+  --color-muted: #8C8478;
+  --color-faint: #5C554C;
+
+  --color-line: #262320;
+  --color-line-light: #36322C;
+
+  --color-terracotta: #C05A3E;
+
+  /* Strict Type Scale (7 steps) */
+  --text-xs: 0.75rem;     /* 12px - Label / Caption / Meta */
+  --text-sm: 0.875rem;    /* 14px - Body Small / Notes */
+  --text-base: 1rem;      /* 16px - Body Regular */
+  --text-lg: 1.25rem;     /* 20px - Subheading / Large Lead */
+  --text-xl: 1.75rem;     /* 28px - Section Title */
+  --text-2xl: 2.5rem;     /* 40px - Major Statement */
+  --text-3xl: 3.5rem;     /* 56px - Hero Headline */
+  --text-4xl: 4.5rem;     /* 72px - Monumental Display */
 }
 
-/* Explicit Global Typographic Rules */
+/* Base Body Styles */
 body {
   font-family: var(--font-sans);
-  color: #DDD6CA;
-  background-color: #0F0E0D;
+  color: var(--color-sand);
+  background-color: var(--color-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -29,20 +43,6 @@ body {
 h1, h2, h3, h4, h5, .font-serif {
   font-family: var(--font-serif);
   font-optical-sizing: auto;
-  font-feature-settings: "cv01", "cv02";
-}
-
-/* Subtle editorial dividers */
-.hairline-b {
-  border-bottom: 1px solid var(--color-warm-border);
-}
-
-.hairline-t {
-  border-top: 1px solid var(--color-warm-border);
-}
-
-.hairline-r {
-  border-right: 1px solid var(--color-warm-border);
 }
 
 @keyframes marquee {
@@ -60,17 +60,17 @@ h1, h2, h3, h4, h5, .font-serif {
   animation-play-state: paused;
 }
 
-/* Minimalist bespoke scrollbar */
+/* Minimalist Bespoke Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0F0E0D;
+  background: var(--color-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: #262320;
+  background: var(--color-line);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C05A3E;
+  background: var(--color-terracotta);
 }

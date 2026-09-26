@@ -54,21 +54,21 @@ export default function Footer({ onOpenReserve }) {
     {
       url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop',
       alt: 'Atmosfer ruang The Glasshouse Senopati',
-      caption: 'Sanctuary Space'
+      caption: 'Ruang Singgah'
     }
   ];
 
   return (
-    <footer className="bg-[#0C0B0A] text-[#DDD6CA] pt-20 pb-12 px-6 md:px-12">
+    <footer className="bg-dark text-sand pt-16 pb-12 px-6 md:px-12 border-t border-line">
       <div className="w-full max-w-7xl mx-auto">
-        {/* Curated Visual Journal (Clean Architectural Framing) */}
-        <div className="mb-20 pb-16 border-b border-[#262320]">
-          <div className="flex items-baseline justify-between mb-8 pb-4 border-b border-[#262320]">
+        {/* Visual Journal Grid */}
+        <div className="mb-16 pb-12 border-b border-line">
+          <div className="flex items-baseline justify-between mb-6 pb-3 border-b border-line">
             <div>
-              <span className="text-[10px] font-mono text-[#C05A3E] tracking-[0.2em] uppercase block mb-1">
+              <span className="text-xs text-terracotta uppercase tracking-wider block mb-1 font-medium">
                 Jurnal Visual
               </span>
-              <h4 className="font-serif text-2xl text-[#F5F2EB] font-normal">
+              <h4 className="font-serif text-xl sm:text-2xl text-cream font-normal">
                 Dokumentasi Harian di Balik Layar
               </h4>
             </div>
@@ -77,7 +77,7 @@ export default function Footer({ onOpenReserve }) {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#7C756B] hover:text-[#F5F2EB] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-cream transition-colors"
             >
               <InstagramIcon size={14} />
               <span>{BRAND_INFO.contact.instagram}</span>
@@ -89,7 +89,7 @@ export default function Footer({ onOpenReserve }) {
             {galleryImages.map((img, idx) => (
               <div
                 key={idx}
-                className="group relative border border-[#262320] bg-[#151412] p-1.5"
+                className="group relative border border-line bg-surface p-1.5"
               >
                 <div className="overflow-hidden aspect-square">
                   <img
@@ -99,8 +99,7 @@ export default function Footer({ onOpenReserve }) {
                     loading="lazy"
                   />
                 </div>
-                <div className="pt-2 pb-1 px-1 flex justify-between text-[10px] font-mono text-[#7C756B]">
-                  <span>ARCHIVE 0{idx + 1}</span>
+                <div className="pt-2 pb-1 px-1 text-center text-xs text-muted font-sans">
                   <span>{img.caption}</span>
                 </div>
               </div>
@@ -108,84 +107,84 @@ export default function Footer({ onOpenReserve }) {
           </div>
         </div>
 
-        {/* Main Editorial Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[#262320]">
-          {/* Brand Manifesto */}
+        {/* Main Footer Directory */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-line">
+          {/* Brand Colophon */}
           <div className="md:col-span-5">
-            <span className="font-serif text-3xl md:text-4xl text-[#F5F2EB] tracking-tight block mb-4 font-normal">
+            <span className="font-serif text-2xl md:text-3xl text-cream tracking-tight block mb-3 font-normal">
               {BRAND_INFO.fullName}
             </span>
-            <p className="text-xs text-[#8C8478] font-light leading-relaxed max-w-sm mb-8">
+            <p className="text-xs text-muted font-light leading-relaxed max-w-sm mb-6">
               Mewujudkan kemewahan kuliner yang jujur melalui biji kopi murni petani nusantara, peragian roti alami, dan panggangan bara perapian kayu.
             </p>
 
-            <div className="space-y-2 text-xs font-mono text-[#7C756B]">
+            <div className="space-y-2 text-xs text-muted font-sans">
               <div>
-                <span className="text-[#5C554C]">Surel: </span>
-                <a href={`mailto:${BRAND_INFO.contact.email}`} className="text-[#DDD6CA] hover:text-[#C05A3E] transition-colors">
+                <span className="text-faint">Surel: </span>
+                <a href={`mailto:${BRAND_INFO.contact.email}`} className="text-sand hover:text-terracotta transition-colors">
                   {BRAND_INFO.contact.email}
                 </a>
               </div>
               <div>
-                <span className="text-[#5C554C]">Konsolidasi: </span>
-                <a href={`tel:${BRAND_INFO.contact.phone}`} className="text-[#DDD6CA] hover:text-[#C05A3E] transition-colors">
+                <span className="text-faint">Konsolidasi: </span>
+                <a href={`tel:${BRAND_INFO.contact.phone}`} className="text-sand hover:text-terracotta transition-colors">
                   {BRAND_INFO.contact.phone}
                 </a>
               </div>
               <div>
-                <span className="text-[#5C554C]">Head Roastery: </span>
-                <span className="text-[#DDD6CA]">Senopati No. 42, Jakarta Selatan</span>
+                <span className="text-faint">Head Roastery: </span>
+                <span className="text-sand">Senopati No. 42, Jakarta Selatan</span>
               </div>
             </div>
           </div>
 
-          {/* Table of Contents / Directory */}
+          {/* Directory Links (Clean sans list, no over-numbering) */}
           <div className="md:col-span-3">
-            <h5 className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#F5F2EB] mb-6 pb-2 border-b border-[#262320]">
+            <h5 className="text-xs uppercase tracking-wider text-cream mb-4 pb-2 border-b border-line font-medium">
               Direktori
             </h5>
-            <ul className="space-y-3 text-xs font-mono text-[#8C8478]">
+            <ul className="space-y-2.5 text-xs text-muted">
               <li>
-                <a href="#story" className="hover:text-[#F5F2EB] transition-colors">01 / Filosofi & Asal Usul</a>
+                <a href="#story" className="hover:text-cream transition-colors">Filosofi & Asal Usul</a>
               </li>
               <li>
-                <a href="#menu" className="hover:text-[#F5F2EB] transition-colors">02 / Kurasi Menu Musiman</a>
+                <a href="#menu" className="hover:text-cream transition-colors">Kurasi Menu Musiman</a>
               </li>
               <li>
-                <a href="#spaces" className="hover:text-[#F5F2EB] transition-colors">03 / Ruang Sanctuary (3 Kota)</a>
+                <a href="#spaces" className="hover:text-cream transition-colors">Ruang Singgah (3 Kota)</a>
               </li>
               <li>
-                <a href="#b2b" className="hover:text-[#F5F2EB] transition-colors">04 / Kemitraan & Wholesale</a>
+                <a href="#b2b" className="hover:text-cream transition-colors">Kemitraan & Wholesale</a>
               </li>
               <li>
-                <button onClick={onOpenReserve} className="hover:text-[#C05A3E] transition-colors text-left">
-                  05 / Reservasi Meja & Event
+                <button onClick={onOpenReserve} className="hover:text-terracotta transition-colors text-left">
+                  Reservasi Meja & Event
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Dispatch Subscription */}
+          {/* Newsletter Box */}
           <div className="md:col-span-4">
-            <h5 className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#F5F2EB] mb-2 pb-2 border-b border-[#262320]">
+            <h5 className="text-xs uppercase tracking-wider text-cream mb-2 pb-2 border-b border-line font-medium">
               Warta Petik & Roastery
             </h5>
-            <p className="text-xs text-[#8C8478] font-light leading-relaxed mb-6">
+            <p className="text-xs text-muted font-light leading-relaxed mb-4">
               Menerima kabar batch sangrai micro-lot terbatas dan jamuan Chef's Table privat setiap bulan.
             </p>
 
-            <form onSubmit={handleSubscribe} className="space-y-3">
+            <form onSubmit={handleSubscribe} className="space-y-2.5">
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Alamat email Anda..."
-                className="w-full bg-[#151412] border border-[#262320] p-3 text-xs text-[#F5F2EB] placeholder-[#5C554C] focus:outline-none focus:border-[#C05A3E]"
+                className="w-full bg-surface border border-line p-3 text-xs text-cream placeholder-faint focus:outline-none focus:border-terracotta"
               />
               <button
                 type="submit"
-                className="w-full border border-[#3A352F] text-[#DDD6CA] hover:text-[#0F0E0D] hover:bg-[#F5F2EB] p-3 text-xs font-medium tracking-[0.14em] uppercase transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full border border-line-light text-sand hover:text-dark hover:bg-cream p-3 text-xs font-medium uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2"
               >
                 {subscribed ? (
                   <>
@@ -201,7 +200,7 @@ export default function Footer({ onOpenReserve }) {
         </div>
 
         {/* Colophon & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-baseline justify-between text-[11px] font-mono text-[#5C554C] gap-4">
+        <div className="pt-6 flex flex-col sm:flex-row items-baseline justify-between text-xs text-faint gap-4">
           <div>
             © {new Date().getFullYear()} {BRAND_INFO.fullName}. Seluruh hak cipta dilindungi.
           </div>

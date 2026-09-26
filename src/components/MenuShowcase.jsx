@@ -11,44 +11,43 @@ export default function MenuShowcase({ onOpenReserve }) {
   const secondaryItem = filteredItems[1] || MENU_ITEMS[1];
 
   return (
-    <section id="menu" className="py-24 md:py-32 px-6 md:px-12 border-b border-[#262320]">
+    <section id="menu" className="py-20 md:py-28 px-6 md:px-12 border-b border-line bg-surface">
       <div className="w-full max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-[#262320] mb-12 gap-4">
-          <div className="text-[11px] font-mono tracking-[0.18em] uppercase text-[#7C756B]">
-            <span>KAPITEL 02 — KARYA RASA & SANGRAI</span>
+        {/* Section Header (Varied Rhythm: Elevated background, clean sans eyebrow) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b border-line mb-10 gap-4">
+          <div className="text-xs text-muted uppercase tracking-wider">
+            Kurasi Rasa Musiman
           </div>
-          <div className="text-xs text-[#8C8478] font-light">
-            Menu disesuaikan berkala mengikuti musim petik petani lokal.
+          <div className="text-xs text-muted font-light">
+            Disesuaikan berkala mengikuti hasil panen petani mitra.
           </div>
         </div>
 
-        {/* Grand Section Title */}
-        <div className="mb-14">
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F5F2EB] font-normal tracking-[-0.025em]">
-            Kurasi Pilihan, <br />
-            <span className="italic font-serif text-[#C05A3E]">Diracik dengan Ketelitian.</span>
+        {/* Section Title */}
+        <div className="mb-12">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-cream font-normal leading-tight">
+            Pilihan Sangrai, Dapur, <br />
+            <span className="italic font-serif text-terracotta">& Peragian Alami.</span>
           </h2>
         </div>
 
-        {/* Minimalist Editorial Category Navigation */}
-        <div className="flex items-center gap-6 sm:gap-10 border-b border-[#262320] pb-4 mb-16 overflow-x-auto scrollbar-none">
-          {CATEGORIES.map((cat, idx) => {
+        {/* Category Tabs */}
+        <div className="flex items-center gap-6 sm:gap-10 border-b border-line pb-4 mb-14 overflow-x-auto scrollbar-none">
+          {CATEGORIES.map((cat) => {
             const isActive = activeTab === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`text-xs uppercase tracking-[0.14em] py-2 whitespace-nowrap transition-colors relative flex items-baseline gap-2 ${
-                  isActive ? 'text-[#F5F2EB]' : 'text-[#7C756B] hover:text-[#BDB5A8]'
+                className={`text-xs uppercase tracking-wider py-2 whitespace-nowrap transition-colors relative flex items-center gap-2 ${
+                  isActive ? 'text-cream font-medium' : 'text-muted hover:text-sand'
                 }`}
               >
-                <span className="font-mono text-[10px] text-[#5C554C]">0{idx + 1}</span>
                 <span>{cat.name}</span>
                 {isActive && (
                   <motion.div
                     layoutId="activeTabUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-px bg-[#C05A3E]"
+                    className="absolute bottom-0 left-0 right-0 h-px bg-terracotta"
                   />
                 )}
               </button>
@@ -56,7 +55,7 @@ export default function MenuShowcase({ onOpenReserve }) {
           })}
         </div>
 
-        {/* Editorial Product Presentation (Asymmetric & Typographic) */}
+        {/* Product Presentation (Open Whitespace, No Rigid Card Box Borders) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -64,47 +63,48 @@ export default function MenuShowcase({ onOpenReserve }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-20"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-16"
           >
-            {/* Featured Product Column (Monumental Presentation) */}
+            {/* Featured Product Column */}
             {featuredItem && (
-              <div className="lg:col-span-7 border border-[#262320] bg-[#151412] p-3">
-                <div className="aspect-[16/10] overflow-hidden mb-6 relative">
+              <div className="lg:col-span-7 flex flex-col justify-between">
+                <div className="aspect-[16/10] overflow-hidden mb-6 relative bg-dark">
                   <img
                     src={featuredItem.image}
                     alt={featuredItem.title}
                     className="w-full h-full object-cover hover:scale-102 transition-transform duration-700 ease-out"
+                    loading="lazy"
                   />
-                  <div className="absolute top-4 left-4 bg-[#0F0E0D]/90 px-3 py-1 text-[10px] font-mono tracking-widest text-[#DDD6CA] border border-[#262320]">
+                  <div className="absolute top-4 left-4 bg-dark/90 px-3 py-1 text-xs text-sand border border-line">
                     {featuredItem.highlight}
                   </div>
                 </div>
 
-                <div className="p-4 sm:p-6 pt-0">
-                  <div className="flex flex-wrap items-baseline justify-between gap-4 pb-4 border-b border-[#262320] mb-4">
+                <div>
+                  <div className="flex flex-wrap items-baseline justify-between gap-4 pb-4 border-b border-line mb-4">
                     <div>
-                      <span className="text-[10px] font-mono tracking-widest text-[#7C756B] uppercase block mb-1">
+                      <span className="text-xs text-muted block mb-1">
                         {featuredItem.origin}
                       </span>
-                      <h3 className="font-serif text-3xl sm:text-4xl text-[#F5F2EB] font-normal">
+                      <h3 className="font-serif text-2xl sm:text-3xl text-cream font-normal">
                         {featuredItem.title}
                       </h3>
                     </div>
-                    <div className="font-mono text-base text-[#F5F2EB]">
+                    <div className="font-mono text-base text-cream">
                       {featuredItem.price}
                     </div>
                   </div>
 
-                  <p className="text-sm text-[#A69E91] font-light leading-relaxed mb-6">
+                  <p className="text-sm text-sand font-light leading-relaxed mb-6">
                     {featuredItem.description}
                   </p>
 
-                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#262320]">
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-line">
                     <div className="flex flex-wrap gap-2">
                       {featuredItem.notes.map((note) => (
                         <span
                           key={note}
-                          className="text-[11px] font-mono text-[#8C8478] bg-[#1A1816] border border-[#262320] px-2.5 py-1"
+                          className="text-xs text-muted bg-dark border border-line px-2.5 py-1"
                         >
                           {note}
                         </span>
@@ -113,7 +113,7 @@ export default function MenuShowcase({ onOpenReserve }) {
 
                     <button
                       onClick={onOpenReserve}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#DDD6CA] hover:text-[#C05A3E] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-sand hover:text-terracotta transition-colors font-medium"
                     >
                       <span>Cicipi di Meja</span>
                       <ArrowUpRight size={13} />
@@ -125,43 +125,44 @@ export default function MenuShowcase({ onOpenReserve }) {
 
             {/* Companion Product Column */}
             {secondaryItem && (
-              <div className="lg:col-span-5 border border-[#262320] bg-[#151412] p-3 flex flex-col justify-between">
-                <div className="aspect-[4/3] overflow-hidden mb-6 relative">
+              <div className="lg:col-span-5 flex flex-col justify-between pt-4 lg:pt-0">
+                <div className="aspect-[4/3] overflow-hidden mb-6 relative bg-dark">
                   <img
                     src={secondaryItem.image}
                     alt={secondaryItem.title}
                     className="w-full h-full object-cover hover:scale-102 transition-transform duration-700 ease-out"
+                    loading="lazy"
                   />
-                  <div className="absolute top-4 left-4 bg-[#0F0E0D]/90 px-3 py-1 text-[10px] font-mono tracking-widest text-[#DDD6CA] border border-[#262320]">
+                  <div className="absolute top-4 left-4 bg-dark/90 px-3 py-1 text-xs text-sand border border-line">
                     {secondaryItem.highlight}
                   </div>
                 </div>
 
-                <div className="p-4 sm:p-6 pt-0">
-                  <div className="flex flex-wrap items-baseline justify-between gap-4 pb-4 border-b border-[#262320] mb-4">
+                <div>
+                  <div className="flex flex-wrap items-baseline justify-between gap-4 pb-4 border-b border-line mb-4">
                     <div>
-                      <span className="text-[10px] font-mono tracking-widest text-[#7C756B] uppercase block mb-1">
+                      <span className="text-xs text-muted block mb-1">
                         {secondaryItem.origin}
                       </span>
-                      <h3 className="font-serif text-2xl sm:text-3xl text-[#F5F2EB] font-normal">
+                      <h3 className="font-serif text-xl sm:text-2xl text-cream font-normal">
                         {secondaryItem.title}
                       </h3>
                     </div>
-                    <div className="font-mono text-sm text-[#F5F2EB]">
+                    <div className="font-mono text-sm text-cream">
                       {secondaryItem.price}
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#A69E91] font-light leading-relaxed mb-6">
+                  <p className="text-xs text-sand font-light leading-relaxed mb-6">
                     {secondaryItem.description}
                   </p>
 
-                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#262320]">
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-line">
                     <div className="flex flex-wrap gap-1.5">
                       {secondaryItem.notes.map((note) => (
                         <span
                           key={note}
-                          className="text-[10px] font-mono text-[#8C8478] bg-[#1A1816] border border-[#262320] px-2 py-0.5"
+                          className="text-xs text-muted bg-dark border border-line px-2 py-0.5"
                         >
                           {note}
                         </span>
@@ -170,7 +171,7 @@ export default function MenuShowcase({ onOpenReserve }) {
 
                     <button
                       onClick={onOpenReserve}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#DDD6CA] hover:text-[#C05A3E] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-sand hover:text-terracotta transition-colors font-medium"
                     >
                       <span>Cicipi di Meja</span>
                       <ArrowUpRight size={13} />
@@ -182,23 +183,23 @@ export default function MenuShowcase({ onOpenReserve }) {
           </motion.div>
         </AnimatePresence>
 
-        {/* Chef's Table Private Reservation Monograph */}
-        <div className="border border-[#262320] p-8 md:p-12 flex flex-col md:flex-row items-baseline justify-between gap-8 bg-[#121110]">
+        {/* Chef's Table Private Reservation Callout */}
+        <div className="border border-line bg-dark p-8 md:p-10 flex flex-col md:flex-row items-baseline justify-between gap-6">
           <div className="max-w-xl">
-            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-[#C05A3E] block mb-2">
+            <span className="text-xs text-terracotta uppercase tracking-wider block mb-2 font-medium">
               Jamuan Privat · Chef’s Table
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl text-[#F5F2EB] font-normal mb-3">
+            <h3 className="font-serif text-xl sm:text-2xl text-cream font-normal mb-2">
               6-Course Wood-Fire & Botanical Pairing
             </h3>
-            <p className="text-xs text-[#8C8478] font-light leading-relaxed">
-              Disediakan khusus untuk kelompok 6 hingga 14 tamu dengan hidangan yang disiapkan langsung di hadapan Anda oleh Head Chef dan Barista Curator kami.
+            <p className="text-xs text-muted font-light leading-relaxed">
+              Disediakan khusus untuk 6 hingga 14 tamu dengan hidangan yang disiapkan langsung di hadapan Anda oleh Head Chef dan Barista Curator kami.
             </p>
           </div>
 
           <button
             onClick={onOpenReserve}
-            className="inline-flex items-center gap-2 border border-[#3A352F] text-[#DDD6CA] hover:text-[#0F0E0D] hover:bg-[#F5F2EB] text-xs font-medium tracking-[0.14em] uppercase py-3.5 px-7 transition-all duration-300 shrink-0"
+            className="inline-flex items-center gap-2 border border-line-light text-sand hover:text-dark hover:bg-cream text-xs font-medium uppercase tracking-wider py-3 px-6 transition-all duration-300 shrink-0"
           >
             <span>Reservasi Chef's Table</span>
             <ArrowUpRight size={13} />
