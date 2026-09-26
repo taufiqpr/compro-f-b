@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, Send } from 'lucide-react';
+import { X, CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 export default function ReservationModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -35,33 +35,33 @@ export default function ReservationModal({ isOpen, onClose }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
           />
 
-          {/* Slide-over Drawer Panel */}
+          {/* Slide-over Drawer Panel (Architectural Monograph Framing) */}
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-            className="relative w-full max-w-lg h-full bg-[#181614] border-l border-[#2E2A27] shadow-2xl flex flex-col justify-between overflow-y-auto z-10"
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            className="relative w-full max-w-lg h-full bg-[#0F0E0D] border-l border-[#262320] shadow-2xl flex flex-col justify-between overflow-y-auto z-10"
           >
-            {/* Header */}
-            <div className="p-8 border-b border-[#26221E] flex items-center justify-between">
+            {/* Drawer Masthead */}
+            <div className="p-8 border-b border-[#262320] flex items-center justify-between">
               <div>
-                <span className="text-xs font-mono text-[#C05A3E] uppercase tracking-widest block mb-1">
-                  Atelier Concierge
+                <span className="text-[10px] font-mono text-[#C05A3E] uppercase tracking-[0.2em] block mb-1">
+                  Concierge Pelayanan
                 </span>
-                <h3 className="font-serif text-2xl text-[#FAF7F2]">
+                <h3 className="font-serif text-2xl text-[#F5F2EB] font-normal">
                   Reservasi & Pertanyaan
                 </h3>
               </div>
               <button
                 onClick={onClose}
-                className="p-2 rounded-full text-[#9C948A] hover:text-[#FAF7F2] hover:bg-[#25221F] transition-colors"
-                aria-label="Close"
+                className="p-2 text-[#7C756B] hover:text-[#F5F2EB] transition-colors"
+                aria-label="Tutup"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
             </div>
 
@@ -69,75 +69,75 @@ export default function ReservationModal({ isOpen, onClose }) {
             <div className="p-8 flex-1">
               {submitted ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-[#C05A3E]/15 text-[#C05A3E] flex items-center justify-center mb-6">
-                    <CheckCircle2 size={36} />
+                  <div className="w-12 h-12 border border-[#C05A3E] text-[#C05A3E] flex items-center justify-center mb-6">
+                    <CheckCircle2 size={24} />
                   </div>
-                  <h4 className="font-serif text-2xl text-[#FAF7F2] mb-3">
+                  <h4 className="font-serif text-2xl text-[#F5F2EB] font-normal mb-3">
                     Permintaan Diterima
                   </h4>
-                  <p className="text-xs text-[#A89E90] max-w-xs leading-relaxed mb-8">
-                    Terima kasih, <strong className="text-white">{formData.name}</strong>. Tim concierge NÚA akan mengonfirmasi ketersediaan meja melalui WhatsApp dalam 15 menit.
+                  <p className="text-xs text-[#8C8478] max-w-xs leading-relaxed mb-8 font-light">
+                    Terima kasih, <strong className="text-[#F5F2EB] font-medium">{formData.name}</strong>. Tim concierge NÚA akan mengonfirmasi ketersediaan meja melalui WhatsApp dalam 15 menit.
                   </p>
                   <button
                     onClick={handleReset}
-                    className="bg-[#24211D] hover:bg-[#C05A3E] text-[#FAF7F2] text-xs font-semibold uppercase tracking-wider py-3 px-6 rounded-full transition-colors"
+                    className="border border-[#3A352F] hover:bg-[#F5F2EB] hover:text-[#0F0E0D] text-[#DDD6CA] text-xs font-mono uppercase tracking-[0.14em] py-3 px-6 transition-colors"
                   >
                     Tutup Jendela
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Category Type */}
+                  {/* Category Type Toggle */}
                   <div>
-                    <label className="text-xs font-medium uppercase tracking-wider text-[#A89E90] block mb-2 font-mono">
-                      Pilihan Layanan
+                    <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#7C756B] block mb-2">
+                      01 / Jenis Kunjungan
                     </label>
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, serviceType: 'dining' })}
-                        className={`py-2.5 px-3 rounded-xl text-xs font-medium transition-colors border ${
+                        className={`py-3 px-4 text-xs font-mono tracking-wider transition-colors border text-left ${
                           formData.serviceType === 'dining'
-                            ? 'bg-[#C05A3E] text-white border-[#C05A3E]'
-                            : 'bg-[#1C1A18] text-[#8C8377] border-[#2C2723]'
+                            ? 'bg-[#1C1A18] text-[#F5F2EB] border-[#C05A3E]'
+                            : 'bg-[#121110] text-[#7C756B] border-[#262320] hover:text-[#DDD6CA]'
                         }`}
                       >
-                        Reservasi Meja Resto
+                        [ Meja Resto ]
                       </button>
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, serviceType: 'b2b' })}
-                        className={`py-2.5 px-3 rounded-xl text-xs font-medium transition-colors border ${
+                        className={`py-3 px-4 text-xs font-mono tracking-wider transition-colors border text-left ${
                           formData.serviceType === 'b2b'
-                            ? 'bg-[#C05A3E] text-white border-[#C05A3E]'
-                            : 'bg-[#1C1A18] text-[#8C8377] border-[#2C2723]'
+                            ? 'bg-[#1C1A18] text-[#F5F2EB] border-[#C05A3E]'
+                            : 'bg-[#121110] text-[#7C756B] border-[#262320] hover:text-[#DDD6CA]'
                         }`}
                       >
-                        Kemitraan Kopi / Event
+                        [ Kemitraan & Event ]
                       </button>
                     </div>
                   </div>
 
                   {/* Branch Select */}
                   <div>
-                    <label className="text-xs font-medium uppercase tracking-wider text-[#A89E90] block mb-2 font-mono">
-                      Pilih Ruang Sanctuary
+                    <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#7C756B] block mb-2">
+                      02 / Pilih Ruang Sanctuary
                     </label>
                     <select
                       value={formData.branch}
                       onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
-                      className="w-full bg-[#1C1A18] border border-[#2E2A27] rounded-xl py-3 px-4 text-xs text-[#FAF7F2] focus:outline-none focus:border-[#C05A3E]"
+                      className="w-full bg-[#151412] border border-[#262320] py-3 px-4 text-xs font-sans text-[#F5F2EB] focus:outline-none focus:border-[#C05A3E]"
                     >
-                      <option value="Senopati, Jakarta">Senopati, Jakarta Selatan (The Glasshouse)</option>
-                      <option value="Dago Pakar, Bandung">Dago Pakar, Bandung (The Pine Sanctuary)</option>
-                      <option value="Canggu, Bali">Canggu, Bali (The Ember & Clay)</option>
+                      <option value="Senopati, Jakarta">The Glasshouse — Senopati, Jakarta Selatan</option>
+                      <option value="Dago Pakar, Bandung">The Pine Sanctuary — Dago Pakar, Bandung</option>
+                      <option value="Canggu, Bali">The Ember & Clay — Canggu, Bali</option>
                     </select>
                   </div>
 
                   {/* Name & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-medium uppercase tracking-wider text-[#A89E90] block mb-2 font-mono">
+                      <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#7C756B] block mb-2">
                         Nama Lengkap
                       </label>
                       <input
@@ -146,12 +146,12 @@ export default function ReservationModal({ isOpen, onClose }) {
                         placeholder="Contoh: Arya Pratama"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#1C1A18] border border-[#2E2A27] rounded-xl py-3 px-4 text-xs text-[#FAF7F2] placeholder-[#5C554C] focus:outline-none focus:border-[#C05A3E]"
+                        className="w-full bg-[#151412] border border-[#262320] py-3 px-4 text-xs text-[#F5F2EB] placeholder-[#5C554C] focus:outline-none focus:border-[#C05A3E]"
                       />
                     </div>
 
                     <div>
-                      <label className="text-xs font-medium uppercase tracking-wider text-[#A89E90] block mb-2 font-mono">
+                      <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#7C756B] block mb-2">
                         Nomor WhatsApp
                       </label>
                       <input
@@ -160,7 +160,7 @@ export default function ReservationModal({ isOpen, onClose }) {
                         placeholder="+62 812-xxxx-xxxx"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-[#1C1A18] border border-[#2E2A27] rounded-xl py-3 px-4 text-xs text-[#FAF7F2] placeholder-[#5C554C] focus:outline-none focus:border-[#C05A3E]"
+                        className="w-full bg-[#151412] border border-[#262320] py-3 px-4 text-xs text-[#F5F2EB] placeholder-[#5C554C] focus:outline-none focus:border-[#C05A3E]"
                       />
                     </div>
                   </div>
@@ -168,67 +168,67 @@ export default function ReservationModal({ isOpen, onClose }) {
                   {/* Guests & Time */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-medium uppercase tracking-wider text-[#A89E90] block mb-2 font-mono">
+                      <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#7C756B] block mb-2">
                         Jumlah Tamu
                       </label>
                       <select
                         value={formData.guests}
                         onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                        className="w-full bg-[#1C1A18] border border-[#2E2A27] rounded-xl py-3 px-4 text-xs text-[#FAF7F2] focus:outline-none focus:border-[#C05A3E]"
+                        className="w-full bg-[#151412] border border-[#262320] py-3 px-4 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#C05A3E]"
                       >
                         <option value="1-2 Tamu">1 – 2 Tamu</option>
                         <option value="3-4 Tamu">3 – 4 Tamu</option>
                         <option value="5-8 Tamu">5 – 8 Tamu</option>
-                        <option value="Group 8+ Tamu">Group 8+ Tamu (Private Area)</option>
+                        <option value="Group 8+ Tamu">Group 8+ Tamu (Private Room)</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="text-xs font-medium uppercase tracking-wider text-[#A89E90] block mb-2 font-mono">
+                      <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#7C756B] block mb-2">
                         Waktu Kunjungan
                       </label>
                       <select
                         value={formData.time}
                         onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                        className="w-full bg-[#1C1A18] border border-[#2E2A27] rounded-xl py-3 px-4 text-xs text-[#FAF7F2] focus:outline-none focus:border-[#C05A3E]"
+                        className="w-full bg-[#151412] border border-[#262320] py-3 px-4 text-xs text-[#F5F2EB] focus:outline-none focus:border-[#C05A3E]"
                       >
-                        <option value="09:00 WIB">09:00 (Morning Roast & Pastry)</option>
-                        <option value="12:30 WIB">12:30 (Lunch Savor)</option>
-                        <option value="18:30 WIB">18:30 (Dinner Wood-Fire Hearth)</option>
-                        <option value="20:00 WIB">20:00 (Night Botanical Tasting)</option>
+                        <option value="09:00 WIB">09:00 (Pagi Sangrai & Pastry)</option>
+                        <option value="12:30 WIB">12:30 (Makan Siang Sourdough)</option>
+                        <option value="18:30 WIB">18:30 (Malam Panggangan Bara)</option>
+                        <option value="20:00 WIB">20:00 (Larut Malam Botanikal)</option>
                       </select>
                     </div>
                   </div>
 
                   {/* Special Requests */}
                   <div>
-                    <label className="text-xs font-medium uppercase tracking-wider text-[#A89E90] block mb-2 font-mono">
-                      Catatan Tambahan / Alergi
+                    <label className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#7C756B] block mb-2">
+                      Catatan Tambahan & Alergi
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Beri tahu kami preferensi meja (indoor/outdoor) atau catatan alergi makanan..."
+                      placeholder="Preferensi meja (indoor/outdoor) atau pantangan bahan makanan..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-[#1C1A18] border border-[#2E2A27] rounded-xl p-4 text-xs text-[#FAF7F2] placeholder-[#5C554C] focus:outline-none focus:border-[#C05A3E] resize-none"
+                      className="w-full bg-[#151412] border border-[#262320] p-3 text-xs text-[#F5F2EB] placeholder-[#5C554C] focus:outline-none focus:border-[#C05A3E] resize-none"
                     />
                   </div>
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-[#C05A3E] hover:bg-[#A84B32] text-white text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#C05A3E]/30 transform active:scale-98"
+                    className="w-full py-4 border border-[#3A352F] bg-[#1A1816] hover:bg-[#F5F2EB] hover:text-[#0F0E0D] text-[#F5F2EB] text-xs font-mono uppercase tracking-[0.16em] transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <span>Kirim Reservasi ke Concierge</span>
-                    <Send size={14} />
+                    <ArrowUpRight size={14} />
                   </button>
                 </form>
               )}
             </div>
 
-            {/* Footer Notice */}
-            <div className="p-6 border-t border-[#26221E] text-center text-[11px] text-[#7A7266]">
-              Atelier Concierge melayani reservasi setiap hari pukul 08:00 – 21:00 WIB.
+            {/* Footer Colophon */}
+            <div className="p-6 border-t border-[#262320] text-center text-[10px] font-mono text-[#5C554C]">
+              Concierge Atelier NÚA melayani setiap hari: 08:00 – 21:00 WIB.
             </div>
           </motion.div>
         </div>

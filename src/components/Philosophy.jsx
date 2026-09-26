@@ -1,127 +1,105 @@
-import { motion } from 'framer-motion';
 import { METRICS } from '../data/content';
 
 export default function Philosophy() {
   return (
-    <section id="story" className="py-28 px-6 md:px-12 bg-[#121110] relative">
+    <section id="story" className="py-24 md:py-32 px-6 md:px-12 border-b border-[#262320]">
       <div className="w-full max-w-7xl mx-auto">
-        {/* Section Header Label */}
-        <div className="flex items-center gap-3 mb-12">
-          <span className="text-xs font-mono text-[#C05A3E] tracking-widest uppercase">01 / FILOSOFI KAMI</span>
-          <div className="h-px bg-[#2B2723] flex-1 max-w-[120px]" />
-          <span className="text-xs tracking-wider uppercase text-[#857C70]">Dari Tanah Petani ke Meja Saji</span>
+        {/* Section Index Marker */}
+        <div className="flex items-center justify-between pb-6 border-b border-[#262320] mb-16 text-[11px] font-mono tracking-[0.18em] uppercase text-[#7C756B]">
+          <span>KAPITEL 01 — KELAHIRAN & FILOSOFI</span>
+          <span className="hidden sm:inline">DARI TANAH PETANI KE MEJA SAJI</span>
         </div>
 
-        {/* Grand Editorial Quote */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 items-baseline">
+        {/* Grand Manifesto Text Spread */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-20 items-baseline">
           <div className="lg:col-span-8">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#FAF7F2] font-normal leading-[1.15]">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#F5F2EB] font-normal leading-[1.08] tracking-[-0.025em]">
               Kami tidak mengejar kecepatan.{' '}
-              <span className="italic font-serif text-[#E0A894]">
-                Kami merayakan waktu, ketelatenan tangan, dan kemurnian rasa
+              <span className="italic font-serif text-[#C05A3E]">
+                Kami merayakan waktu, ketelatenan tangan,
               </span>{' '}
-              yang dianugerahkan alam nusantara.
+              dan kemurnian rasa yang dihadiahkan alam.
             </h2>
           </div>
 
-          <div className="lg:col-span-4 flex flex-col justify-end">
-            <p className="text-[#A89F93] text-base leading-relaxed font-light mb-6">
-              Dimulai dari sebuah micro-roastery kecil pada tahun 2018, NÚA lahir dari kegelisahan terhadap budaya kuliner instan. Kami bekerja langsung dengan 12 kelompok tani di Gayo, Kerinci, Toraja, hingga Kintamani—menghilangkan rantai tengkulak dan memastikan setiap butir panen dihargai secara bermartabat.
+          <div className="lg:col-span-4 space-y-5 text-sm text-[#A69E91] leading-relaxed font-light">
+            <p>
+              Dimulai dari sebuah micro-roastery kecil pada tahun 2018 di Jakarta Selatan, NÚA lahir dari kegelisahan terhadap budaya kuliner cepat saji. Kami percaya bahwa rasa sejati membutuhkan waktu: kopi yang dipetik saat matang optimal, adonan yang difermentasi berhari-hari, dan kayu bakar yang dikeringkan dengan sabar.
             </p>
-            <div className="flex items-center gap-4 text-xs font-mono text-[#C05A3E] uppercase tracking-wider">
-              <span>Etika Sourcing 100% Terlacak</span>
-              <span className="w-1 h-1 rounded-full bg-[#C05A3E]" />
-              <span>Zero Artificial Additives</span>
-            </div>
+            <p>
+              Kami bermitra langsung dengan 12 kelompok tani di Gayo, Kerinci, Toraja, hingga Kintamani—menghilangkan tengkulak dan memastikan setiap panen dihargai secara bermartabat.
+            </p>
           </div>
         </div>
 
-        {/* Visual Grid: Real Culinary Process Photography */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
-            className="group relative rounded-2xl overflow-hidden bg-[#181614] border border-[#2B2723] aspect-[4/5]"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?q=80&w=900&auto=format&fit=crop"
-              alt="Artisan Roasting Machine & Precision"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#121110] via-black/30 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#C05A3E] mb-1 block">Proses 01</span>
-              <h3 className="font-serif text-xl text-[#FAF7F2] mb-1">Micro-Batch Roasting</h3>
-              <p className="text-xs text-[#A89E90] font-light">Disangrai maksimal 5kg per batch untuk mengunci profil rasa terroir aslinya.</p>
+        {/* Asymmetrical Photo Essay (Editorial Storytelling, No Card Clichés) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24">
+          {/* Main Large Image: Wood-Fire & Hearth */}
+          <div className="lg:col-span-7">
+            <div className="border border-[#262320] bg-[#151412] p-2">
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop"
+                  alt="Dapur api kayu bakar NÚA"
+                  className="w-full h-full object-cover hover:scale-102 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+              </div>
+              <div className="pt-3 pb-1 px-2 flex justify-between text-[11px] font-mono text-[#7C756B]">
+                <span>PL. 02 — TUNGKU BARA KAYU RAMBUTAN</span>
+                <span>PANGGANGAN API LANGSUNG</span>
+              </div>
             </div>
-          </motion.div>
+            <p className="mt-3 text-xs text-[#8C8478] font-light max-w-lg leading-relaxed">
+              Kayu buah rambutan tua yang dipangkas musiman memberikan karakter aroma asap yang manis dan lembut, tidak menusuk hidung, menyatu sempurna dengan bahan lokal.
+            </p>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="group relative rounded-2xl overflow-hidden bg-[#181614] border border-[#2B2723] aspect-[4/5]"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?q=80&w=900&auto=format&fit=crop"
-              alt="Wild Sourdough Starter & Fermentation"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#121110] via-black/30 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#D49B44] mb-1 block">Proses 02</span>
-              <h3 className="font-serif text-xl text-[#FAF7F2] mb-1">48h Ragi Liar Hidup</h3>
-              <p className="text-xs text-[#A89E90] font-light">Starter alami berusia 7 tahun menghasilkan tekstur roti kenyal tanpa asam maag.</p>
+          {/* Secondary Stack: Roasting & Fermentation Details */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="border border-[#262320] bg-[#151412] p-2">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?q=80&w=900&auto=format&fit=crop"
+                  alt="Kultur ragi liar sourdough 48 jam"
+                  className="w-full h-full object-cover hover:scale-102 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+              </div>
+              <div className="pt-3 pb-1 px-2 flex justify-between text-[11px] font-mono text-[#7C756B]">
+                <span>PL. 03 — PERAGIAN ALAMI</span>
+                <span>KULTUR INDUK SEJAK 2018</span>
+              </div>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="group relative rounded-2xl overflow-hidden bg-[#181614] border border-[#2B2723] aspect-[4/5]"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop"
-              alt="Wood-Fired Hearth Charcoal"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#121110] via-black/30 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#C05A3E] mb-1 block">Proses 03</span>
-              <h3 className="font-serif text-xl text-[#FAF7F2] mb-1">Kayu Buah Rambutan</h3>
-              <p className="text-xs text-[#A89E90] font-light">Asap manis beraroma harum dari pangkasan kayu buah tropis yang ramah lingkungan.</p>
-            </div>
-          </motion.div>
+            <p className="text-xs text-[#8C8478] font-light leading-relaxed">
+              Starter ragi liar kami dirawat setiap pagi dengan tepung gandum utuh dan air mata air, menciptakan rongga roti yang kenyal serta rasa asam karamel yang kaya.
+            </p>
+          </div>
         </div>
 
-        {/* Animated Metrics Bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-12 border-t border-[#26221E]">
-          {METRICS.map((metric, i) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-6 rounded-2xl bg-[#171513] border border-[#2A2622] hover:border-[#3E3832] transition-colors"
-            >
-              <div className="font-serif text-4xl lg:text-5xl text-[#FAF7F2] mb-2 font-normal">
-                {metric.value}
-                <span className="text-lg text-[#C05A3E] font-sans font-medium">{metric.suffix}</span>
+        {/* Typographic Metrics Ledger (Integrated Grid, Not Floating SaaS Cards) */}
+        <div className="border-t border-[#262320]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {METRICS.map((metric, i) => (
+              <div
+                key={metric.label}
+                className={`py-8 sm:py-10 ${
+                  i < METRICS.length - 1 ? 'lg:border-r border-[#262320] lg:pr-8' : ''
+                } ${i > 0 ? 'lg:pl-8' : ''} border-b lg:border-b-0 border-[#262320]`}
+              >
+                <div className="font-serif text-4xl sm:text-5xl text-[#F5F2EB] font-normal tracking-tight mb-2">
+                  {metric.value}
+                  <span className="text-sm font-sans font-normal text-[#C05A3E] ml-1">{metric.suffix}</span>
+                </div>
+                <div className="text-xs font-mono uppercase tracking-[0.14em] text-[#C5BCB0] mb-2">
+                  {metric.label}
+                </div>
+                <p className="text-xs text-[#7C756B] font-light leading-relaxed">
+                  {metric.subtext}
+                </p>
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#EAE4DC] mb-1">
-                {metric.label}
-              </div>
-              <div className="text-xs text-[#8C8377] font-light leading-relaxed">
-                {metric.subtext}
-              </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

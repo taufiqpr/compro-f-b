@@ -1,23 +1,22 @@
-
 export default function Marquee() {
   const items = [
-    'SINGLE ORIGIN INDONESIAN HIGHLANDS',
-    'ARTISAN 48-HOUR SOURDOUGH FERMENTATION',
-    'RAMBUTAN WOOD-FIRE SMOKED HEARTH',
-    'BOTANICAL WILD YEAST ELIXIRS',
-    'REGENERATIVE FARMING PARTNERSHIP',
-    'SANCTUARY SPACES: SENOPATI · DAGO · CANGGU',
+    'PETIK MERAH DATARAN TINGGI NUSANTARA',
+    'KULTUR RAGI LIAR 48 JAM',
+    'PANGGANGAN BARA KAYU RAMBUTAN',
+    'MINUMAN BOTANIKAL ALAMI',
+    'ETIKA SOURCING 100% TERLACAK',
+    'SANCTUARY: JAKARTA · BANDUNG · BALI',
   ];
 
   return (
-    <div className="w-full py-5 bg-[#181614] border-y border-[#2B2723] overflow-hidden select-none">
-      <div className="animate-marquee flex items-center gap-8 whitespace-nowrap">
+    <div className="w-full py-4 bg-[#0C0B0A] border-b border-[#262320] overflow-hidden select-none">
+      <div className="animate-marquee flex items-center gap-12 whitespace-nowrap">
         {[...items, ...items, ...items].map((text, idx) => (
-          <div key={idx} className="flex items-center gap-8">
-            <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#A89E90] hover:text-[#FAF7F2] transition-colors">
+          <div key={idx} className="flex items-center gap-12">
+            <span className="text-[11px] font-mono tracking-[0.24em] uppercase text-[#6E675D]">
               {text}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C05A3E]" />
+            <span className="text-[#C05A3E] text-xs font-serif italic">§</span>
           </div>
         ))}
       </div>
